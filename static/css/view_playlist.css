@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2d2d2d;
+    color: white;
+}
+
+.playlist-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.track-list {
+    list-style: none;
+    padding: 0;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    background: #3c3c3c;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.track-image {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.track-info {
+    flex-grow: 1;
+}
+
+.track-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.track-artist {
+    color: white;
+}
+
+.spotify-link {
+    display: inline-block;
+    background: #1DB954;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.preview-player {
+    margin-left: 10px;
+}

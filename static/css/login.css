@@ -1,0 +1,40 @@
+body {
+    background: linear-gradient(to bottom, #000000, #98e1b2);
+    /* Dark gradient background */
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.login-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #1DB954;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #148f3d;
+}
+
+.spotify-logo {
+    width: 25px;
+    margin-right: 10px;
+}

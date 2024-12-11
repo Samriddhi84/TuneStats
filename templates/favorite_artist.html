@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Artists</title>
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" href="/static/css/favorite_artist.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/top-tracks" class="nav-link">Top Tracks</a></li>
+            <li><a href="/favorite-artist" class="nav-link">Favorite Artists</a></li>
+            <li><a href="/track-analysis" class="nav-link current">Track Analysis</a></li>
+            <li><a href="/genie" class="nav-link">Music Personality</a></li>
+            <li><a href="/logout" class="nav-link">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="title">Your Favorite Artists</h1>
+
+    <!-- Display Top 5 Artist Photos -->
+    <div class="top-artists">
+        {% for artist in favorite_artists[:5] %}
+        <div class="artist">
+            <img src="{{ artist.image }}" alt="{{ artist.name }}">
+            <p>{{ artist.name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Table for favorite artists -->
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Artist</th>
+            <th>Genres</th>
+            <th>Popularity</th>
+            <th>Followers</th>
+        </tr>
+        {% for artist in favorite_artists %}
+        <tr>
+            <td>{{ artist.rank }}</td>
+            <td>{{ artist.name }}</td>
+            <td class="proper">{{ artist.genres }}</td>
+            <td class="{{ artist.popularity|lower|replace(' ', '-') }}">{{ artist.popularity }}</td>
+            <td>{{ artist.followers }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>

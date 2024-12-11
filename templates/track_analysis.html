@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Analysis - Spotify</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/track_analysis.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/top-tracks" class="nav-link">Top Tracks</a></li>
+            <li><a href="/favorite-artist" class="nav-link">Favorite Artists</a></li>
+            <li><a href="/track-analysis" class="nav-link current">Track Analysis</a></li>
+            <li><a href="/genie" class="nav-link">Spotify Genie</a></li>
+            <li><a href="/logout" class="nav-link">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Your Top Tracks Analysis</h1>
+        <p>Explore the audio features of your favorite songs</p>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+        <!-- Feature Explanations -->
+        <div class="feature-explanations">
+            <div class="feature-header">
+                <h4>Feature Explanations <i class="chevron chevron-down"></i></h4>
+            </div>
+            <div class="feature-content">
+                <ul class="feature-list">
+                    <li><strong>Danceability:</strong> How suitable the track is for dancing.</li>
+                    <li><strong>Energy:</strong> The intensity and activity level.</li>
+                    <li><strong>Valence:</strong> The musical positiveness.</li>
+                    <li><strong>Acousticness:</strong> Measures whether the track is acoustic.</li>
+                    <li><strong>Instrumentalness:</strong> Indicates the absence of vocals.</li>
+                </ul>
+            </div>
+        </div>
+
+        {% for track in tracks %}
+        <!-- Track Container -->
+        <div class="track-container">
+            <div class="track-header">
+                <h2 class="track-title">{{ track.name }} - {{ track.artist }}</h2>
+                <i class="chevron chevron-down"></i>
+            </div>
+            <div class="track-content">
+                <div class="feature-chart">
+                    <canvas id="chart-{{ loop.index }}"></canvas>
+                </div>
+                <ul class="feature-list">
+                    <li><strong>Danceability:</strong> {{ track.audio_features.danceability }}</li>
+                    <li><strong>Energy:</strong> {{ track.audio_features.energy }}</li>
+                    <li><strong>Valence:</strong> {{ track.audio_features.valence }}</li>
+                    <li><strong>Acousticness:</strong> {{ track.audio_features.acousticness }}</li>
+                    <li><strong>Instrumentalness:</strong> {{ track.audio_features.instrumentalness }}</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </main>
+
+    <script src="/static/js/chart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 20 Spotify Tracks</title>
+    <link rel="stylesheet" href="/static/css/top_track.css">
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+
+
+</head>
+
+<body>
+
+    <nav class="nav">
+        <ul class="nav-list">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/top-tracks" class="nav-link">Top Tracks</a></li>
+            <li><a href="/favorite-artist" class="nav-link">Favorite Artists</a></li>
+            <li><a href="/track-analysis" class="nav-link current">Track Analysis</a></li>
+            <li><a href="/genie" class="nav-link">Spotify Genie</a></li>
+            <li><a href="/logout" class="nav-link">Logout</a></li>
+            <li><a href="/create-playlist" class="nav-link">Get on spotify</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="title">Top 20 Spotify Tracks</h1>
+
+    <div class="track-container">
+        <!-- Loop over the tracks passed from Flask -->
+        {% for track in tracks %}
+        <div class="track-card" onclick="playTrack('{{ track.uri }}')">
+            <img src="{{ track.album_image }}" alt="Album Image">
+            <h3>{{ track.track_name }}</h3>
+            <p>{{ track.artist_name }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Audio player for playing preview -->
+    <audio id="audioPlayer" controls style="display: none;"></audio>
+
+    <script>
+        let embedController = null; // Store the EmbedController globally for reuse
+
+        // Spotify IFrame API readiness callback
+        window.onSpotifyIframeApiReady = (IFrameAPI) => {
+            let element = document.getElementById('embed-iframe');
+            let options = {
+                uri: 'spotify:episode:7makk4oTQel546B0PZlDM5' // Placeholder URI
+            };
+
+            let callback = (controller) => {
+                embedController = controller; // Save the controller for later use
+            };
+
+            IFrameAPI.createController(element, options, callback);
+        };
+
+        // Function to play a track using Spotify Embed API
+        function playTrack(songUri) {
+            if (embedController && songUri) {
+                embedController.loadUri(songUri); // Load the song URI in the Spotify Embed
+                embedController.play(); // Play the song
+            } else {
+                alert("Spotify Embed API is not ready or invalid song URI.");
+            }
+        }
+    </script>
+
+    <!-- Make the embed-iframe Sticky -->
+
+    <div id="embed-iframe"></div>
+
+
+
+</body>
+
+</html>

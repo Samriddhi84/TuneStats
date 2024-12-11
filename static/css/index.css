@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+    min-height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.heading {
+    font-size: 42px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #1DB954, #4CAF50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+
+.animated {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+    min-height: 42px;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+.animated p {
+    padding-left: 10px;
+    margin: 0;
+    color: #1DB954;
+}
+
+.animated span {
+    position: relative;
+    display: inline-block;
+    font-size: 36px;
+    padding: 10px;
+}
+
+.animated span::before {
+    content: "Your vibes";
+    color: #1DB954;
+    animation: words 25s infinite;
+    display: inline-block;
+    white-space: nowrap;
+    height: 100%;
+    vertical-align: middle;
+    animation-delay: 0;
+}
+
+.animated span::after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    background-color: #121212;
+    border-left: 2px solid #1DB954;
+    right: -8px;
+    animation: cursor 0.8s infinite, typing 25s steps(14) infinite;
+    top: 0;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.button-container a {
+    text-decoration: none;
+}
+
+.stat-button {
+    background: rgba(29, 185, 84, 0.1);
+    border: 2px solid #1DB954;
+    border-radius: 15px;
+    padding: 25px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 220px;
+    /* Adjusted for a card-like layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stat-button:hover {
+    transform: translateY(-5px);
+    background: rgba(29, 185, 84, 0.2);
+    box-shadow: 0 10px 20px rgba(29, 185, 84, 0.2);
+}
+
+.button-icon {
+    font-size: 40px;
+    /* Increased icon size for emphasis */
+    margin-bottom: 10px;
+}
+
+.button-title {
+    font-size: 26px;
+    /* Increased title size for emphasis */
+    font-weight: 600;
+}
+
+.button-description {
+    font-size: 20px;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid #ff7f5000;
+    }
+}
+
+@keyframes words {
+
+    0%,
+    25% {
+        content: " What Makes You Move 🎵";
+    }
+
+    26%,
+    50% {
+        content: " Your Perfect Mix 🎧";
+    }
+
+    51%,
+    75% {
+        content: " New Obsessions 🌟";
+    }
+
+    76%,
+    100% {
+        content: " Your favorite artists 🎸";
+    }
+}
+
+@keyframes typing {
+
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+
+
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 8px);
+    }
+}

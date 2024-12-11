@@ -1,0 +1,15 @@
+# Write a gitignore file for python flask 
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+#virtualenv
+venv/
+.env/
+
+#testing
+coverage.xml
+test.py
+tracks.json

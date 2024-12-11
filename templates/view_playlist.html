@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Your Playlist</title>
+    <link rel="stylesheet" href="/static/css/view_playlist.css">
+</head>
+
+<body>
+    <div class="playlist-header">
+        <h1>{{ playlist_name }}</h1>
+        <p>{{ playlist_description }}</p>
+        <a href="{{ spotify_url }}" target="_blank" class="spotify-link">Open in Spotify</a>
+    </div>
+
+    <ul class="track-list">
+        {% for track in tracks %}
+        <li class="track-item">
+            {% if track.image %}
+            <img src="{{ track.image }}" alt="{{ track.name }}" class="track-image">
+            {% endif %}
+            <div class="track-info">
+                <div class="track-name">{{ track.name }}</div>
+                <div class="track-artist">{{ track.artist }}</div>
+            </div>
+            {% if track.preview_url %}
+            <audio controls class="preview-player">
+                <source src="{{ track.preview_url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/youtube.py" class="btn btn-primary">
+        Convert to YouTube Playlist
+    </a>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2d2d2d;
+    color: white;
+    text-align: center;
+}
+
+/* Navbar */
+.nav {
+    background-color: #181818;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-link {
+    color: #EAEAEA;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #1DB954;
+}
+
+.title {
+    margin: 20px 0;
+}
+
+.proper {
+    text-transform: capitalize;
+}
+
+.top-artists {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.artist {
+    text-align: center;
+}
+
+.artist img {
+    width: 200px;
+    height: 200px;
+    /* border-radius: 50%; */
+    margin-bottom: 10px;
+}
+
+.artist p {
+    color: #f2f2f2;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #333;
+    color: #f2f2f2;
+}
+
+table tr:nth-child(even) {
+    background-color: #3c3c3c;
+}
+
+table tr:nth-child(odd) {
+    background-color: #2d2d2d;
+}
+
+table tr:hover {
+    background-color: #575757;
+}
+
+.superstar {
+    color: #e6ac00;
+    font-weight: bold;
+}
+
+.legend {
+    color: #ff5050;
+    font-weight: bold;
+}
+
+.rising-star {
+    color: #66ccff;
+    font-weight: bold;
+}
