@@ -6,7 +6,17 @@ function initThreeJS() {
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('threejs-container').appendChild(renderer.domElement);
+
+    // Ensure the container is positioned correctly
+    const container = document.getElementById('threejs-container');
+    container.style.position = 'absolute';
+    container.style.top = '0';
+    container.style.left = '0';
+    container.style.width = '100%';
+    container.style.height = '100%';
+    container.style.zIndex = '1';
+
+    container.appendChild(renderer.domElement);
 
     // Create particles
     const geometry = new THREE.BufferGeometry();
@@ -24,6 +34,9 @@ function initThreeJS() {
     scene.add(particles);
 
     camera.position.z = 300;
+
+    // Ensure renderer's canvas doesn't capture mouse events
+    renderer.domElement.style.pointerEvents = 'none';
 }
 
 function animate() {
