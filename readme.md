@@ -84,10 +84,6 @@ Tune Stats is a web application that allows users to analyze their Spotify liste
 - **tracks.json**: Stores the user's top tracks information.
 - **test.py**: Contains test scripts for various functionalities.
 
-## Screenshots
-
-![image](https://github.com/user-attachments/assets/4d240b4a-8ded-43f1-85d6-0c3a00e7f100)
-
 ## Routes
 
 - `/`: Home page.
