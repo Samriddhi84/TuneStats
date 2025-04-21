@@ -26,7 +26,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
     z-index: 10;
-    /* Ensure container is above the background */
 }
 
 #threejs-container {
@@ -36,9 +35,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
-    /* Behind the login container */
     pointer-events: none;
-    /* Allow clicks to pass through */
 }
 
 h1 {
